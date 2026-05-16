@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Daanish Sohail — Engineer & Builder</title>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8Q2LD2E0W5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8Q2LD2E0W5');
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -191,22 +199,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .ml-icon{font-size:1.25rem;}
 .ml-title{font-size:0.9rem;font-weight:700;margin-bottom:0.35rem;}
 .ml-desc{font-size:0.73rem;color:var(--t2);line-height:1.65;flex:1;}
-/* EXPERIENCE — EXPANDED */
-.exp-timeline{display:flex;flex-direction:column;gap:2.5rem;}
-.et-left{display:none;}
-.exp-section-label{font-family:var(--mono);font-size:0.62rem;color:var(--a1);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
-.exp-section-label::after{content:'';flex:1;height:1px;background:var(--b1);}
-.internships-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
-.exp-card{background:var(--card);border:1px solid var(--b1);border-radius:16px;padding:1.5rem;transition:all 0.3s;position:relative;overflow:hidden;}
-.exp-card:hover{border-color:var(--b2);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.3);}
-.exp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:16px 16px 0 0;}
-.exp-card.fyp-card::before{background:linear-gradient(90deg,var(--a3),var(--a5));}
-.exp-card.alpha-card::before{background:linear-gradient(90deg,var(--a4),var(--a5));}
-.exp-card.dsg-card::before{background:linear-gradient(90deg,var(--a1),var(--a2));}
-.exp-card.edu-card::before{background:linear-gradient(90deg,var(--a1),var(--a3));}
-.exp-card-full{grid-column:1/-1;}
-.edu-card-inner{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
-
+/* EXPERIENCE TABS */
+.exp-timeline{display:grid;grid-template-columns:180px 1fr;gap:0;}
+.et-left{display:flex;flex-direction:column;gap:0;border-right:1px solid var(--b1);padding-right:1.75rem;}
 .et-btn{padding:0.8rem 0.9rem;border-radius:8px;cursor:pointer;transition:all 0.2s;font-size:0.78rem;margin-bottom:0.3rem;text-align:left;background:transparent;border:none;color:var(--t2);font-family:var(--font);}
 .et-btn.active{background:rgba(245,158,11,0.1);color:var(--a1);border:1px solid rgba(245,158,11,0.2);}
 .et-right{padding-left:2.5rem;}
@@ -618,11 +613,14 @@ footer b{color:var(--a1);font-weight:400;}
 <section class="sec" id="experience">
   <div class="sec-head fade-up"><span class="sec-num">06</span><h2 class="sec-title">Work <span>Experience</span></h2><div class="sec-line"></div></div>
   <div class="exp-timeline fade-up">
-
-    <!-- FYP — Full Width -->
-    <div>
-      <div class="exp-section-label">🎓 Final Year Project</div>
-      <div class="exp-card fyp-card">
+    <div class="et-left">
+      <button class="et-btn active" onclick="showExp('fyp',this)">FYP Lead</button>
+      <button class="et-btn" onclick="showExp('alpha',this)">Alpha-Beta</button>
+      <button class="et-btn" onclick="showExp('dsg',this)">DSG Energy</button>
+      <button class="et-btn" onclick="showExp('edu',this)">Education</button>
+    </div>
+    <div class="et-right">
+      <div class="et-panel active" id="exp-fyp">
         <div class="ep-date">March 2025 — Present</div>
         <div class="ep-title">Final Year Project Lead</div>
         <div class="ep-co">FAST NUCES — AI Receptionist Robot</div>
@@ -634,67 +632,40 @@ footer b{color:var(--a1);font-weight:400;}
         </ul>
         <div class="ep-tags"><span class="tg tg-b">Jetson Nano</span><span class="tg tg-p">NLP</span><span class="tg tg-p">RAG</span><span class="tg tg-g">Python</span><span class="tg tg-y">3D Design</span></div>
       </div>
-    </div>
-
-    <!-- Internships — Side by Side -->
-    <div>
-      <div class="exp-section-label">💼 Internships</div>
-      <div class="internships-grid">
-        <div class="exp-card alpha-card">
-          <div class="ep-date">June 2025 — July 2025</div>
-          <div class="ep-title">Robotics Engineer Intern</div>
-          <div class="ep-co">Alpha-Beta Technology, Wah Cantt</div>
-          <ul class="ep-list">
-            <li>Designed Arduino-based robotic systems including line-follower and Bluetooth-controlled robots</li>
-            <li>Sensor integration, calibration, and real-time motion control firmware in C++</li>
-            <li>Hardware assembly, embedded firmware debugging, and system testing</li>
-          </ul>
-          <div class="ep-tags"><span class="tg tg-y">Arduino</span><span class="tg tg-r">C++</span><span class="tg tg-g">Sensors</span><span class="tg tg-b">Bluetooth</span></div>
-        </div>
-        <div class="exp-card dsg-card">
-          <div class="ep-date">June 2024 — August 2024</div>
-          <div class="ep-title">Electrical Engineering Intern</div>
-          <div class="ep-co">DSG Energy, Lahore</div>
-          <ul class="ep-list">
-            <li>Troubleshooting and maintenance of power inverters in live energy infrastructure</li>
-            <li>Circuit analysis, hardware testing, and embedded system diagnostics</li>
-            <li>Project layout and enclosure design using SketchUp for energy installations</li>
-          </ul>
-          <div class="ep-tags"><span class="tg tg-y">Power Electronics</span><span class="tg tg-b">Hardware Testing</span><span class="tg tg-y">SketchUp</span></div>
-        </div>
+      <div class="et-panel" id="exp-alpha">
+        <div class="ep-date">June 2025 — July 2025</div>
+        <div class="ep-title">Robotics Engineer Intern</div>
+        <div class="ep-co">Alpha-Beta Technology, Wah Cantt</div>
+        <ul class="ep-list">
+          <li>Designed Arduino-based robotic systems including line-follower and Bluetooth-controlled robots</li>
+          <li>Sensor integration, calibration, and real-time motion control firmware in C++</li>
+          <li>Hardware assembly, embedded firmware debugging, and system testing</li>
+        </ul>
+        <div class="ep-tags"><span class="tg tg-y">Arduino</span><span class="tg tg-r">C++</span><span class="tg tg-g">Sensors</span><span class="tg tg-b">Bluetooth</span></div>
+      </div>
+      <div class="et-panel" id="exp-dsg">
+        <div class="ep-date">June 2024 — August 2024</div>
+        <div class="ep-title">Electrical Engineering Intern</div>
+        <div class="ep-co">DSG Energy, Lahore</div>
+        <ul class="ep-list">
+          <li>Troubleshooting and maintenance of power inverters in live energy infrastructure</li>
+          <li>Circuit analysis, hardware testing, and embedded system diagnostics</li>
+          <li>Project layout and enclosure design using SketchUp for energy installations</li>
+        </ul>
+        <div class="ep-tags"><span class="tg tg-y">Power Electronics</span><span class="tg tg-b">Hardware Testing</span><span class="tg tg-y">SketchUp</span></div>
+      </div>
+      <div class="et-panel" id="exp-edu">
+        <div class="ep-date">2022 — 2026</div>
+        <div class="ep-title">B.E. Electrical Engineering — Computer Engineering Major</div>
+        <div class="ep-co">FAST National University of Computer & Emerging Sciences</div>
+        <ul class="ep-list">
+          <li>4-year Bachelor's at Pakistan's top-ranked engineering university — HEC & PEC recognized</li>
+          <li>Major in Computer Engineering — AI, embedded systems, digital design, and networking</li>
+          <li>15+ real engineering projects across AI, hardware, IoT, robotics, MATLAB, and networking</li>
+        </ul>
+        <div class="ep-tags"><span class="tg tg-y">FAST NUCES</span><span class="tg tg-b">HEC Recognized</span><span class="tg tg-b">PEC Recognized</span></div>
       </div>
     </div>
-
-    <!-- Education -->
-    <div>
-      <div class="exp-section-label">🏛️ Education</div>
-      <div class="exp-card edu-card">
-        <div class="edu-card-inner">
-          <div>
-            <div class="ep-date">2022 — 2026</div>
-            <div class="ep-title">B.E. Electrical Engineering — Computer Engineering Major</div>
-            <div class="ep-co">FAST National University of Computer & Emerging Sciences</div>
-            <ul class="ep-list">
-              <li>4-year Bachelor's at Pakistan's top-ranked engineering university — HEC & PEC recognized</li>
-              <li>Major in Computer Engineering — AI, embedded systems, digital design, and networking</li>
-              <li>15+ real engineering projects across AI, hardware, IoT, robotics, MATLAB, and networking</li>
-            </ul>
-            <div class="ep-tags" style="margin-top:1rem;"><span class="tg tg-y">FAST NUCES</span><span class="tg tg-b">HEC Recognized</span><span class="tg tg-b">PEC Recognized</span></div>
-          </div>
-          <div>
-            <div class="ec-title" style="margin-top:0.3rem;">Core Coursework</div>
-            <div class="courses-list">
-              <span class="cl-item">Machine Learning</span><span class="cl-item">Internet of Things</span>
-              <span class="cl-item">Embedded Systems</span><span class="cl-item">Digital Design</span>
-              <span class="cl-item">Computer Vision</span><span class="cl-item">Operating Systems</span>
-              <span class="cl-item">Computer Networking</span><span class="cl-item">Signal & Systems</span>
-              <span class="cl-item">Digital Electronics</span><span class="cl-item">Control Systems</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -842,7 +813,12 @@ function toggleMob(){
   if(m.classList.contains('open')){h[0].style.transform='rotate(45deg) translate(5px,5px)';h[1].style.opacity='0';h[2].style.transform='rotate(-45deg) translate(5px,-5px)';}
   else{h[0].style.transform='';h[1].style.opacity='';h[2].style.transform='';}
 }
-
+function showExp(id,btn){
+  document.querySelectorAll('.et-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.et-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('exp-'+id).classList.add('active');
+  btn.classList.add('active');
+}
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});},{threshold:0.08});
 document.querySelectorAll('.fade-up,.fade-l,.stg').forEach(el=>obs.observe(el));
 window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>50?'rgba(8,8,15,0.97)':'rgba(8,8,15,0.85)';});
